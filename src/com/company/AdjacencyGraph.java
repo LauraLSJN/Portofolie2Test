@@ -61,6 +61,10 @@ class Vertex {
         OutEdge=new ArrayList<Edge>();
     }
 
+    public String toString() {
+        return name;
+    }
+
 }
 
 class Edge{
