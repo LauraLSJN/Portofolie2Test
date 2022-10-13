@@ -1,5 +1,6 @@
 package com.company;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class AdjacencyGraph {
@@ -44,12 +45,18 @@ public class AdjacencyGraph {
         for(int i=0;i<Vertices.size();i++){
             System.out.println(" Destination "+Vertices.get(i).name+" is shipping container amount to: ");
             Vertex current=Vertices.get(i);
+
             for (Edge e: current.OutEdge) {
                 System.out.println(e.to.name +" with container amount: "+e.weight);
             }
+
         }
 
+
+
     }
+
+
 
 }
 
