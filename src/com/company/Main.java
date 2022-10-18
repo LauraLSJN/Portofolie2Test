@@ -59,6 +59,7 @@ public class Main {
                ArrayList<Vertex> vlist = adjDirectedG.Vertices;
                boolean[] done = new boolean[n];
                Vertex[] prev = new Vertex[n];
+
                int [] weight = new int[n];
 
                Arrays.fill(weight,100000);
