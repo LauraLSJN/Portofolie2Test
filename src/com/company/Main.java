@@ -1,5 +1,7 @@
 package com.company;
 
+import javax.sound.midi.Soundbank;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -13,6 +15,7 @@ public class Main {
         adjDirectedG.PrintGraph();
 
         int [] saldo = new int [adjDirectedG.Vertices.size()];
+        String [] names = new String[adjDirectedG.Vertices.size()];
 
         for (Vertex v: adjDirectedG.Vertices) {
             for (Edge e: v.OutEdge) {
@@ -22,17 +25,24 @@ public class Main {
 
                 int idxf = adjDirectedG.Vertices.indexOf(f);
                 int idxt = adjDirectedG.Vertices.indexOf(t);
+                //System.out.println("before from: "+ saldo[idxf]+" "+"to: "+ saldo[idxt] );
                 saldo[idxf] -= w;
                 saldo[idxt] += w;
+                names[idxf] = v.toString();
+                //System.out.println("after from: "+ saldo[idxf]+" "+"to: "+ saldo[idxt] );
              //   System.out.println(v + " " + e.weight);
 
-               System.out.println(v + " " + saldo[idxf] + " " + saldo[idxt]);
+               //System.out.println(t + " " + saldo[idxt]);
+                System.out.println();
+
             }
 
 
 
         }
-
+        for (int i = 0; i < saldo.length; i++){
+            System.out.println("port: "+ names[i] +" surplus: " + saldo[i]);
+        }
       //  Algoritme algoritme = new Algoritme();
 
         /*
