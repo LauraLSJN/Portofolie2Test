@@ -11,6 +11,8 @@ public class Main {
      //   MatrixGraph directedG=createDirected();
        // directedG.PrintGraph();
 
+        System.out.println("chris");
+
         AdjacencyGraph adjDirectedG = createDirectedAdj();
         adjDirectedG.PrintGraph();
 
