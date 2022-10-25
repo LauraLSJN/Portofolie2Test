@@ -86,6 +86,7 @@ public class Main {
 
             while() {
                 //Flyt indtil sPlus eller sMinus er 0
+                //Erstatter værdien men en der er en lavere -> Kører indeks 0 -= 1 omvendt med plus
             }
 
         }
