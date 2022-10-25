@@ -12,7 +12,6 @@ public class Main {
         // directedG.PrintGraph();
 
 
-
         AdjacencyGraph adjDirectedG = createDirectedAdj();
         adjDirectedG.PrintGraph();
 
@@ -57,6 +56,20 @@ public class Main {
                 sPlus[i] = saldo[i];
                 System.out.println(names[i] + " Saldo større end 0: " + sPlus[i]);
 
+
+              /*  if(sPlus[4] == 9500){
+                    System.out.println("index 4 virker: " + sPlus[4]);
+                   //sPlus[4] = sPlus[4] - sPlus[4];
+                    System.out.println("nu index 4: " + sPlus[4]);
+                    if (sMinus[0] < 0){
+                        sMinus[0] = sMinus[0] + sPlus[4];
+                        System.out.println("test: " + sMinus[0]);
+                    }
+
+
+                }*/
+
+
                 //System.out.println(names[i] + " Saldo større end 0: " + saldo[i]);
                 //continue;
                 //diffPlus = sPlus[i] - sPlus[i];
@@ -75,11 +88,42 @@ public class Main {
                 System.out.println(names[i] + " Saldo er 0: " + saldo[i]);
             }
 
-         //   System.out.println("sPlus: " + sPlus[i]);
+            //Plusser sPlus værdien over i sMinus værdi
+            if (sPlus[i] == 4500) {
+                sMinus[1] =- sPlus[i];
+                sPlus[i] = sPlus[i]-sPlus[i];
+                //sPlus[i] = sPlus[i]-sPlus[i];
+                System.out.println("sMinus[1]: " + sMinus[1]);
+                System.out.println("sPlus[i] er nu: " + sPlus[i]);
+            }
+            if (sPlus[i] == 9500) {
+                System.out.println("sPlus er: " + sPlus[i]);
+                System.out.println("sMinus[2] er: " + sMinus[2]);
+                sMinus[2] = sMinus[2] + sPlus[i];
+                sPlus[i] = sPlus[i]-sPlus[i];
+                //sPlus[i] = sPlus[i]-sPlus[i];
+                System.out.println("sMinus[2] er nu " + sMinus[2]);
+                System.out.println("sPlus[i] er nu: " + sPlus[i]);
+            }
 
-        while (sPlus.length >0 ){
-            if (sPlus[i] > sMinus[i]){
-                System.out.println("test");
+            while(sPlus[i]>0){
+                if(sPlus[i] > 0){
+
+
+                }
+            }
+
+
+            //   System.out.println("sPlus: " + sPlus[i]);
+       /* int k = 0;
+        while (k < 10){
+            if (saldo[i] > 0){
+                saldo[i] = saldo[i]+20;
+                //sMinus[i] = sMinus[i]+20;
+                System.out.println(saldo[i]);
+                k++;
+
+                //System.out.println("test");
             }
         }
 
@@ -146,9 +190,7 @@ public class Main {
 */
 
 
-
-
-      //  Algoritme algoritme = new Algoritme();
+            //  Algoritme algoritme = new Algoritme();
         /*
         Port Jaw = new Port("Jaw" , -1000);
         Port Tan = new Port("Tan", -19000);
@@ -162,7 +204,7 @@ public class Main {
 
         algoritme.portMinusList.add(Jaw);
         algoritme.portMinusList.add(Tan);*/
-        //algoritme.printList();
+            //algoritme.printList();
 
 
 
@@ -194,7 +236,9 @@ public class Main {
         for (int i = 0; i <n ; i++) {
             System.out.println(i + "  " + done[i] + " " + prev[i] + " " + weight[i]);
         }*/
-   
+
+        }
+    }
 
 
 
