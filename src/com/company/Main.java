@@ -8,19 +8,19 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
-     //   MatrixGraph directedG=createDirected();
-       // directedG.PrintGraph();
+        //   MatrixGraph directedG=createDirected();
+        // directedG.PrintGraph();
 
         System.out.println("chris");
 
         AdjacencyGraph adjDirectedG = createDirectedAdj();
         adjDirectedG.PrintGraph();
 
-        int [] saldo = new int [adjDirectedG.Vertices.size()];
-        String [] names = new String[adjDirectedG.Vertices.size()];
+        int[] saldo = new int[adjDirectedG.Vertices.size()];
+        String[] names = new String[adjDirectedG.Vertices.size()];
 
-        for (Vertex v: adjDirectedG.Vertices) {
-            for (Edge e: v.OutEdge) {
+        for (Vertex v : adjDirectedG.Vertices) {
+            for (Edge e : v.OutEdge) {
                 Vertex f = e.from;
                 Vertex t = e.to;
                 int w = e.weight;
@@ -32,21 +32,123 @@ public class Main {
                 saldo[idxt] += w;
                 names[idxf] = v.toString();
                 //System.out.println("after from: "+ saldo[idxf]+" "+"to: "+ saldo[idxt] );
-             //   System.out.println(v + " " + e.weight);
+                //   System.out.println(v + " " + e.weight);
 
-               //System.out.println(t + " " + saldo[idxt]);
+                //System.out.println(t + " " + saldo[idxt]);
                 System.out.println();
 
+            }
+        }
+
+        for (int i = 0; i < saldo.length; i++) {
+            System.out.println("port: " + names[i] + " surplus: " + saldo[i]);
+        }
+
+        //Opgave med minimum cost
+        //int [] saldo1 = new int [adjDirectedG.Vertices.size()];
+        int[] sPlus = new int[adjDirectedG.Vertices.size()];
+        int[] sMinus = new int[adjDirectedG.Vertices.size()];
+        int diffPlus;
+        int diffMinus;
+
+        for (int i = 0; i < saldo.length; i++) {
+            if (saldo[i] > 0) {
+                //int [] saldoPlus = new int[saldo[i]];
+                sPlus[i] = saldo[i];
+                System.out.println(names[i] + " Saldo større end 0: " + sPlus[i]);
+
+                //System.out.println(names[i] + " Saldo større end 0: " + saldo[i]);
+                //continue;
+                //diffPlus = sPlus[i] - sPlus[i];
+                //System.out.println("DIFF: " + diffPlus);
+            }
+
+            if (saldo[i] < 0) {
+                sMinus[i] = saldo[i];
+                System.out.println(names[i] + " Saldo mindre end 0: " + sMinus[i]);
+                //System.out.println(names[i] + " Saldo er mindre end 0: " + saldo[i]);
+                //diffMinus = sMinus[i] - sMinus[i];
+                //System.out.println("DIFF: " + diffMinus);
+            }
+
+            if (saldo[i] == 0) {
+                System.out.println(names[i] + " Saldo er 0: " + saldo[i]);
+            }
+
+         //   System.out.println("sPlus: " + sPlus[i]);
+
+        while (sPlus.length >0 ){
+            if (sPlus[i] > sMinus[i]){
+                System.out.println("test");
+            }
+        }
+
+            for (int j = 0; j < sPlus.length; j++) {
+
+                if (sPlus[i] > sMinus[i]) {
+                    //while skal kører så længe begge to er ikke 0
+                    // mens den ene index er mindre end så lang den kan være og mens den anden....
+                    // tjek på den længeste
+                    //mens i er mindre end længden af listen
+                    //if statemens der kun incrementer når det er
+                    // while i < plus.size
+                    //if statements
+
+                }
             }
 
 
 
-        }
-        for (int i = 0; i < saldo.length; i++){
-            System.out.println("port: "+ names[i] +" surplus: " + saldo[i]);
-        }
-      //  Algoritme algoritme = new Algoritme();
 
+            //while (diff > 0){
+            //int diff = sMinus[i]-sMinus[i];
+            //System.out.println("DIFF: " + diff);
+            //while (sPlus[i] > 0 || sMinus[i]<0){
+
+
+            //}
+
+
+        }
+
+
+
+
+        //if (sMinus[i] > sPlus[i]) {
+        //    sMinus[i] = sMinus[i] - sPlus[i];
+        //    System.out.println("test: " + sMinus[i]);
+        //}
+
+
+
+            //System.out.println("Saldo større end 0: " + sMinus[i]);
+    }
+
+      /*  for (int sminus : sMinus) {
+            System.out.println(sminus);
+
+        }
+        for (int splus : sPlus) {
+            System.out.println(splus);
+        }*/
+
+
+/*
+        for (int i = 0; i<saldo.length; i++){
+            for (int j = 0; j<saldo.length; j++){
+                if(saldo[i] < 0){
+                   //System.out.println("TEST" + saldo[i]);
+
+                }
+            }
+
+        }
+*/
+
+
+
+
+      //  Algoritme algoritme = new Algoritme();
         /*
         Port Jaw = new Port("Jaw" , -1000);
         Port Tan = new Port("Tan", -19000);
@@ -60,7 +162,6 @@ public class Main {
 
         algoritme.portMinusList.add(Jaw);
         algoritme.portMinusList.add(Tan);*/
-
         //algoritme.printList();
 
 
@@ -93,7 +194,7 @@ public class Main {
         for (int i = 0; i <n ; i++) {
             System.out.println(i + "  " + done[i] + " " + prev[i] + " " + weight[i]);
         }*/
-    }
+   
 
 
 
@@ -152,6 +253,7 @@ public class Main {
 
         return newG;
     }
+
 
 
 
