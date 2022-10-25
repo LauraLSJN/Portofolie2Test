@@ -26,3 +26,24 @@ public class Port {
         this.containerAntal = containerAntal;
     }
 }
+
+
+/*  if(sPlus[4] == 9500){
+                    System.out.println("index 4 virker: " + sPlus[4]);
+                   //sPlus[4] = sPlus[4] - sPlus[4];
+                    System.out.println("nu index 4: " + sPlus[4]);
+                    if (sMinus[0] < 0){
+                        sMinus[0] = sMinus[0] + sPlus[4];
+                        System.out.println("test: " + sMinus[0]);
+                    }
+
+
+                }
+
+
+                //System.out.println(names[i] + " Saldo større end 0: " + saldo[i]);
+                //continue;
+                //diffPlus = sPlus[i] - sPlus[i];
+                //System.out.println("DIFF: " + diffPlus);
+
+               */
