@@ -47,8 +47,9 @@ public class Main {
         //int [] saldo1 = new int [adjDirectedG.Vertices.size()];
         int[] sPlus = new int[adjDirectedG.Vertices.size()];
         int[] sMinus = new int[adjDirectedG.Vertices.size()];
-        int diffPlus;
-        int diffMinus;
+
+      //  int[] result = new int[saldo.length];
+
 
         for (int i = 0; i < saldo.length; i++) {
             if (saldo[i] > 0) {
@@ -56,141 +57,38 @@ public class Main {
                 sPlus[i] = saldo[i];
                 System.out.println(names[i] + " Saldo større end 0: " + sPlus[i]);
 
-
-              /*  if(sPlus[4] == 9500){
-                    System.out.println("index 4 virker: " + sPlus[4]);
-                   //sPlus[4] = sPlus[4] - sPlus[4];
-                    System.out.println("nu index 4: " + sPlus[4]);
-                    if (sMinus[0] < 0){
-                        sMinus[0] = sMinus[0] + sPlus[4];
-                        System.out.println("test: " + sMinus[0]);
-                    }
-
-
-                }*/
-
-
-                //System.out.println(names[i] + " Saldo større end 0: " + saldo[i]);
-                //continue;
-                //diffPlus = sPlus[i] - sPlus[i];
-                //System.out.println("DIFF: " + diffPlus);
             }
 
             if (saldo[i] < 0) {
                 sMinus[i] = saldo[i];
                 System.out.println(names[i] + " Saldo mindre end 0: " + sMinus[i]);
-                //System.out.println(names[i] + " Saldo er mindre end 0: " + saldo[i]);
-                //diffMinus = sMinus[i] - sMinus[i];
-                //System.out.println("DIFF: " + diffMinus);
             }
 
             if (saldo[i] == 0) {
                 System.out.println(names[i] + " Saldo er 0: " + saldo[i]);
             }
 
-            //Plusser sPlus værdien over i sMinus værdi
-            if (sPlus[i] == 4500) {
-                sMinus[1] =- sPlus[i];
-                sPlus[i] = sPlus[i]-sPlus[i];
-                //sPlus[i] = sPlus[i]-sPlus[i];
-                System.out.println("sMinus[1]: " + sMinus[1]);
-                System.out.println("sPlus[i] er nu: " + sPlus[i]);
-            }
-            if (sPlus[i] == 9500) {
-                System.out.println("sPlus er: " + sPlus[i]);
-                System.out.println("sMinus[2] er: " + sMinus[2]);
-                sMinus[2] = sMinus[2] + sPlus[i];
-                sPlus[i] = sPlus[i]-sPlus[i];
-                //sPlus[i] = sPlus[i]-sPlus[i];
-                System.out.println("sMinus[2] er nu " + sMinus[2]);
-                System.out.println("sPlus[i] er nu: " + sPlus[i]);
-            }
-
-            while(sPlus[i]>0){
-                if(sPlus[i] > 0){
-
-
-                }
-            }
-
-
-            //   System.out.println("sPlus: " + sPlus[i]);
-       /* int k = 0;
-        while (k < 10){
-            if (saldo[i] > 0){
-                saldo[i] = saldo[i]+20;
-                //sMinus[i] = sMinus[i]+20;
-                System.out.println(saldo[i]);
-                k++;
-
-                //System.out.println("test");
-            }
-        }
-
-            for (int j = 0; j < sPlus.length; j++) {
-
-                if (sPlus[i] > sMinus[i]) {
-                    //while skal kører så længe begge to er ikke 0
-                    // mens den ene index er mindre end så lang den kan være og mens den anden....
-                    // tjek på den længeste
-                    //mens i er mindre end længden af listen
-                    //if statemens der kun incrementer når det er
-                    // while i < plus.size
-                    //if statements
-
-                }
-            }
-
-
-
-
-            //while (diff > 0){
-            //int diff = sMinus[i]-sMinus[i];
-            //System.out.println("DIFF: " + diff);
-            //while (sPlus[i] > 0 || sMinus[i]<0){
-
-
-            //}
-
 
         }
 
 
 
-
-        //if (sMinus[i] > sPlus[i]) {
-        //    sMinus[i] = sMinus[i] - sPlus[i];
-        //    System.out.println("test: " + sMinus[i]);
-        //}
-
-
-
-            //System.out.println("Saldo større end 0: " + sMinus[i]);
-    }
-
-      /*  for (int sminus : sMinus) {
+        for (int sminus : sMinus) {
             System.out.println(sminus);
 
         }
         for (int splus : sPlus) {
             System.out.println(splus);
-        }*/
-
-
-/*
-        for (int i = 0; i<saldo.length; i++){
-            for (int j = 0; j<saldo.length; j++){
-                if(saldo[i] < 0){
-                   //System.out.println("TEST" + saldo[i]);
-
-                }
-            }
-
         }
-*/
 
 
-            //  Algoritme algoritme = new Algoritme();
+
+
+
+
+
+
+        //  Algoritme algoritme = new Algoritme();
         /*
         Port Jaw = new Port("Jaw" , -1000);
         Port Tan = new Port("Tan", -19000);
@@ -204,7 +102,7 @@ public class Main {
 
         algoritme.portMinusList.add(Jaw);
         algoritme.portMinusList.add(Tan);*/
-            //algoritme.printList();
+        //algoritme.printList();
 
 
 
@@ -237,8 +135,52 @@ public class Main {
             System.out.println(i + "  " + done[i] + " " + prev[i] + " " + weight[i]);
         }*/
 
+
+
+
+
+      /*  for (int minus : sMinus) {
+            System.out.println(minus);
         }
+
+        for (int plus : sPlus) {
+            System.out.println(plus);
+        }*/
+
+        /*for (int i = 0; i<saldo.length; i++ ){
+            if(sPlus[i]>0){
+                System.out.println("sPlus: " + sPlus[i]);
+                System.out.println("sMinus: " + sMinus[i]);
+                int test = sPlus[i] + 33;
+                System.out.println(test);
+
+            }
+
+            if(sMinus[i]<0){
+                System.out.println("TEST - 3 der er mindre");
+            }*/
+
+
+
+
+        /*int counter = 6;
+        while(sPlus[counter]>0){
+            if(sPlus[counter]>0){
+                sMinus[counter] = sMinus[counter] + sPlus[counter];
+                System.out.println("sMounis counter: " + sMinus[counter]);
+
+                if(sMinus[counter]<0){
+                    break;
+                }
+
+            }
+        }*/
+
     }
+
+
+
+
 
 
 
