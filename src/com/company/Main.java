@@ -18,6 +18,7 @@ public class Main {
         int[] saldo = new int[adjDirectedG.Vertices.size()];
         String[] names = new String[adjDirectedG.Vertices.size()];
 
+
         for (Vertex v : adjDirectedG.Vertices) {
             for (Edge e : v.OutEdge) {
                 Vertex f = e.from;
@@ -63,6 +64,12 @@ public class Main {
                 sMinus[i] = saldo[i];
                 System.out.println(names[i] + " Saldo mindre end 0: " + sMinus[i]);
             }
+
+         //   System.out.println("Gammel saldo: " + saldo[i]);
+          //  System.out.println(" sPlus: " + sPlus[i] + " sMinus " + sMinus[i]);
+           // result[i] = sPlus[i] - sMinus[i];
+           // System.out.println("Ny saldo: " + result[i]);
+            System.out.println();
 
             if (saldo[i] == 0) {
                 System.out.println(names[i] + " Saldo er 0: " + saldo[i]);
