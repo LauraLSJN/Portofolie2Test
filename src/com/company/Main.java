@@ -65,10 +65,10 @@ public class Main {
                 System.out.println(names[i] + " Saldo mindre end 0: " + sMinus[i]);
             }
 
-         //   System.out.println("Gammel saldo: " + saldo[i]);
+         /* System.out.println("Gammel saldo: " + saldo[i]);
           //  System.out.println(" sPlus: " + sPlus[i] + " sMinus " + sMinus[i]);
            // result[i] = sPlus[i] - sMinus[i];
-           // System.out.println("Ny saldo: " + result[i]);
+           System.out.println("Ny saldo: " + result[i]);*/
             System.out.println();
 
             if (saldo[i] == 0) {
@@ -76,7 +76,21 @@ public class Main {
             }
 
 
+
+
         }
+
+        for (int i = 0; i < ; i++) {
+            //Find første havn der er for mange og første havn der er for lidt
+            //Som ikke er i 0
+
+            while() {
+                //Flyt indtil sPlus eller sMinus er 0
+            }
+
+        }
+
+
 
 
 
