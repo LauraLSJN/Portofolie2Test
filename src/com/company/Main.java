@@ -34,6 +34,7 @@ public class Main {
         for (int i = 0; i < saldo.length; i++) {
             System.out.println("port: " + names[i] + " surplus: " + saldo[i]);
         }
+        System.out.println();
 
         //To Arrays til at gamme + og - surplus
         int[] sPlus = new int[adjDirectedG.Vertices.size()];
@@ -43,18 +44,30 @@ public class Main {
             if (saldo[i] > 0) {
                 sPlus[i] = saldo[i];
             }
-
             if (saldo[i] < 0) {
                 sMinus[i] = saldo[i];
             }
          }
-          /* done : split i to*/
-        System.out.println("SALDO" + saldo.length);
-        
+
+        //Print sMinus og sPlus array før de er flyttet
+        /*
+        //Printer listerne ud
+        System.out.println("sMinus listen");
+        for (int sminus : sMinus) {
+
+            System.out.println(sminus);
+        }
+        System.out.println("sPlus listen");
+        for (int splus : sPlus) {
+
+            System.out.println(splus);
+        }*/
+
+        int flyt;
+        int flytCost = 0;
         int imin=0, iplus=0; //counter
         boolean run = true;
-        //while(true)
-        while(run){
+         while(run){
            if(sMinus[imin]==0){
                imin++;
               // continue;
@@ -76,11 +89,7 @@ public class Main {
                 System.out.println("Flyt: " + flyt + " fra " + names[iplus] + " til " + names[imin]);
                 sPlus[iplus] -= flyt;
                 sMinus[imin] += flyt;
-                test++;
-
-
             }  else if (sPlus[iplus]< -sMinus[imin]){
-                System.out.println("ANDET IF");
                 flyt = sPlus[iplus];
                 flytCost+=flyt;
                 System.out.println("Flyt: " + flyt + " fra " + names[iplus] + " til " + names[imin]);
@@ -88,7 +97,6 @@ public class Main {
                 sMinus[imin] += flyt;
             } else {
                 run = false;
-
             }
         }
 
@@ -101,15 +109,12 @@ public class Main {
         for (int sminus : sMinus) {
             System.out.println(sminus);
         }
+        System.out.println("sPlus listen");
         for (int splus : sPlus) {
             System.out.println(splus);
         }*/
 
     }
-
-
-
-
 
 
 
@@ -158,18 +163,10 @@ public class Main {
         newG.addEdge(Mom,Jeb,500);
         newG.addEdge(Mom,Sal, 2000);
 
-
         newG.addEdge(Jeb,Jeb,0);
         newG.addEdge(Zan,Zan,0);
         newG.addEdge(Sal,Sal,0);
 
-
-
         return newG;
     }
-
-
-
-
-
-        }
+}
