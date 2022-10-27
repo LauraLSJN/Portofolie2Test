@@ -25,8 +25,8 @@ public class Main {
                 Vertex t = e.to;
                 int w = e.weight;
 
-                int idxf = adjDirectedG.Vertices.indexOf(f);
-                int idxt = adjDirectedG.Vertices.indexOf(t);
+                int idxf = adjDirectedG.Vertices.indexOf(f); //index(of) linenært i længden af knuder(vertices), gennemløber alle vertices linenært. -> algoritme kvadratisk. for hver knude gennemløber vi hver knude.
+                int idxt = adjDirectedG.Vertices.indexOf(t); //index(of) indeholder skjult et foreach loop, For alle vertices, gennemløber vi alle vertices.
                 //System.out.println("before from: "+ saldo[idxf]+" "+"to: "+ saldo[idxt] );
                 saldo[idxf] -= w;
                 saldo[idxt] += w;
@@ -49,6 +49,8 @@ public class Main {
         int[] sPlus = new int[adjDirectedG.Vertices.size()];
         int[] sMinus = new int[adjDirectedG.Vertices.size()];
 
+        //en tæller -> 0 begge steder, så skal den øges
+
       //  int[] result = new int[saldo.length];
 
 
@@ -62,13 +64,13 @@ public class Main {
             if (saldo[i] > 0) {
                 //int [] saldoPlus = new int[saldo[i]];
                 sPlus[i] = saldo[i];
-                System.out.println(names[i] + " Saldo større end 0: " + sPlus[i]);
+             //   System.out.println(names[i] + " Saldo større end 0: " + sPlus[i]);
 
             }
 
             if (saldo[i] < 0) {
                 sMinus[i] = saldo[i];
-                System.out.println(names[i] + " Saldo mindre end 0: " + sMinus[i]);
+              //  System.out.println(names[i] + " Saldo mindre end 0: " + sMinus[i]);
             }
          }
           /* done : split i to*/
@@ -113,10 +115,10 @@ public class Main {
           //  System.out.println(" sPlus: " + sPlus[i] + " sMinus " + sMinus[i]);
            // result[i] = sPlus[i] - sMinus[i];
            System.out.println("Ny saldo: " + result[i]);*/
-            System.out.println();
 
+/*
             if (saldo[i] == 0) {
-                System.out.println(names[i] + " Saldo er 0: " + saldo[i]);
+              //  System.out.println(names[i] + " Saldo er 0: " + saldo[i]);
             }
 
             while (sPlus[i] > 0 || sMinus[i] < 0){
@@ -128,7 +130,7 @@ public class Main {
 
 
 
-        }
+       // }
 
 
 
@@ -161,7 +163,7 @@ public class Main {
 
 
 
-
+/*
         for (int sminus : sMinus) {
             System.out.println(sminus);
 
@@ -169,7 +171,7 @@ public class Main {
         for (int splus : sPlus) {
             System.out.println(splus);
         }
-
+*/
 
 
 
