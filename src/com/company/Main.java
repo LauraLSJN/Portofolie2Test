@@ -52,7 +52,13 @@ public class Main {
       //  int[] result = new int[saldo.length];
 
 
+        //int iplu=0, imin=0; //counter
         for (int i = 0; i < saldo.length; i++) {
+        //while(true){
+            //if(sMinus[imin>=saldo.length)break;
+
+            //if(imin>=saldo.length)break;
+
             if (saldo[i] > 0) {
                 //int [] saldoPlus = new int[saldo[i]];
                 sPlus[i] = saldo[i];
@@ -64,8 +70,46 @@ public class Main {
                 sMinus[i] = saldo[i];
                 System.out.println(names[i] + " Saldo mindre end 0: " + sMinus[i]);
             }
+         }
+          /* done : split i to*/
 
-         /* System.out.println("Gammel saldo: " + saldo[i]);
+        
+        int imin=0, iplus=0; //counter
+        while(true){
+           if(sMinus[imin]==0){
+               imin++; continue;
+           }
+            if(sPlus[iplus]==0){
+                iplus++; continue;
+            }
+            if(imin>=saldo.length)break;
+            if(iplus>=saldo.length)break;
+
+
+           System.out.println(" sPlus: " + sPlus[iplus] + " sMinus " + sMinus[imin]
+                +names[imin]+"  "+names[iplus]);
+
+           int flyt = sPlus[iplus];
+           // if  - sminus er mindre end det så brug -sminus
+            if(sMinus[imin]< sPlus[iplus]) {
+                flyt = sMinus[imin];
+                System.out.println(" Flyt: " + flyt + " fra " + names[iplus] + " til " + names[imin]);
+                sPlus[iplus] -= flyt;
+                sMinus[imin] += flyt;
+
+            }  else if (sPlus[iplus]< sMinus[imin]){
+                flyt = sPlus[iplus];
+                System.out.println(" Flyt: " + flyt + " fra " + names[iplus] + " til " + names[imin]);
+                sPlus[iplus] -= flyt;
+                sMinus[imin] += flyt;
+            }
+                if (1 == 1) break;//når slutningen af løkken første gang -> break ud af den
+
+
+        }
+
+
+        /*System.out.println("Gammel saldo: " + saldo[i]);
           //  System.out.println(" sPlus: " + sPlus[i] + " sMinus " + sMinus[i]);
            // result[i] = sPlus[i] - sMinus[i];
            System.out.println("Ny saldo: " + result[i]);*/
@@ -75,12 +119,26 @@ public class Main {
                 System.out.println(names[i] + " Saldo er 0: " + saldo[i]);
             }
 
+            while (sPlus[i] > 0 || sMinus[i] < 0){
+                System.out.println("FOR MANGE" + sPlus[i]);
+                System.out.println("FOR LIDT" + sMinus[i]);
+                break;
+
+            }*/
 
 
 
         }
 
-        for (int i = 0; i < ; i++) {
+
+
+
+
+
+
+
+
+        /*for (int i = 0; i < saldo.length; i++) {
             //Find første havn der er for mange og første havn der er for lidt
             //Som ikke er i 0
 
@@ -89,7 +147,16 @@ public class Main {
                 //Erstatter værdien men en der er en lavere -> Kører indeks 0 -= 1 omvendt med plus
             }
 
+        }*/
+
+   /*     int i = 0, j = 0;
+        while (i + j < ar.length) {
+            if (j == ar2.length || (i < ar1.length && ar1[i] < ar2[j]) )
+                ar[i+j] = ar1[i++]; // copy ith element of ar1 and increment i
+            else
+                ar[i+j] = ar2[j++]; // copy jth element of ar2 and increment j
         }
+    }*/
 
 
 
