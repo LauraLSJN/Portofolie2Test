@@ -74,14 +74,16 @@ public class Main {
             }
          }
           /* done : split i to*/
-
+        System.out.println("SALDO" + saldo.length);
         
         int imin=0, iplus=0; //counter
         boolean run = true;
         //while(true)
         while(run){
            if(sMinus[imin]==0){
-               imin++; continue;
+               imin++;
+               System.out.println("IMIN" + imin);
+               //continue;
            }
             if(sPlus[iplus]==0){
                 iplus++;
@@ -96,10 +98,12 @@ public class Main {
             //if(imin>= saldo.length)break;
 
 
-           System.out.println(" sPlus: " + sPlus[iplus] + " sMinus " + sMinus[imin]
-                +names[imin]+"  "+names[iplus]);
+          // System.out.println(" sPlus: " + sPlus[iplus] + " sMinus " + sMinus[imin]
+             //   +names[imin]+"  "+names[iplus]);
 
            int flyt = sPlus[iplus];
+           int test = 0;
+
            // if  - sminus er mindre end det så brug -sminus
             if(-sMinus[imin] <= sPlus[iplus]) {
                 System.out.println("FØRSTE IF"+ test);
@@ -116,8 +120,30 @@ public class Main {
                 System.out.println(" Flyt: " + flyt + " fra " + names[iplus] + " til " + names[imin]);
                 sPlus[iplus] -= flyt;
                 sMinus[imin] += flyt;
+            } else {
+                run = false;
+
             }
-                if (1 == 1) break;//når slutningen af løkken første gang -> break ud af den
+
+
+
+
+/*
+               else if (-sMinus[imin] < iplus){
+                System.out.println("TREDJE IF");
+                flyt = sMinus[imin];
+                System.out.println(" Flyt: " + flyt + " fra " + names[iplus] + " til " + names[imin]);
+                sPlus[iplus] -= flyt;
+                sMinus[imin] += flyt;
+            }
+*/
+            
+
+
+
+
+
+               // if (1 == 1) break;//når slutningen af løkken første gang -> break ud af den
 
 
         }
