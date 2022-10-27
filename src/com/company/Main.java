@@ -8,10 +8,6 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
-        //   MatrixGraph directedG=createDirected();
-        // directedG.PrintGraph();
-
-
         AdjacencyGraph adjDirectedG = createDirectedAdj();
         adjDirectedG.PrintGraph();
 
@@ -25,16 +21,11 @@ public class Main {
                 Vertex t = e.to;
                 int w = e.weight;
 
-                int idxf = adjDirectedG.Vertices.indexOf(f); //index(of) linenært i længden af knuder(vertices), gennemløber alle vertices linenært. -> algoritme kvadratisk. for hver knude gennemløber vi hver knude.
-                int idxt = adjDirectedG.Vertices.indexOf(t); //index(of) indeholder skjult et foreach loop, For alle vertices, gennemløber vi alle vertices.
-                //System.out.println("before from: "+ saldo[idxf]+" "+"to: "+ saldo[idxt] );
+                int idxf = adjDirectedG.Vertices.indexOf(f);
+                int idxt = adjDirectedG.Vertices.indexOf(t);
                 saldo[idxf] -= w;
                 saldo[idxt] += w;
                 names[idxf] = v.toString();
-                //System.out.println("after from: "+ saldo[idxf]+" "+"to: "+ saldo[idxt] );
-                //   System.out.println(v + " " + e.weight);
-
-                //System.out.println(t + " " + saldo[idxt]);
                 System.out.println();
 
             }
@@ -44,33 +35,17 @@ public class Main {
             System.out.println("port: " + names[i] + " surplus: " + saldo[i]);
         }
 
-        //Opgave med minimum cost
-        //int [] saldo1 = new int [adjDirectedG.Vertices.size()];
+        //To Arrays til at gamme + og - surplus
         int[] sPlus = new int[adjDirectedG.Vertices.size()];
         int[] sMinus = new int[adjDirectedG.Vertices.size()];
 
-        //en tæller -> 0 begge steder, så skal den øges
-
-      //  int[] result = new int[saldo.length];
-
-
-        //int iplu=0, imin=0; //counter
         for (int i = 0; i < saldo.length; i++) {
-        //while(true){
-            //if(sMinus[imin>=saldo.length)break;
-
-            //if(imin>=saldo.length)break;
-
             if (saldo[i] > 0) {
-                //int [] saldoPlus = new int[saldo[i]];
                 sPlus[i] = saldo[i];
-             //   System.out.println(names[i] + " Saldo større end 0: " + sPlus[i]);
-
             }
 
             if (saldo[i] < 0) {
                 sMinus[i] = saldo[i];
-              //  System.out.println(names[i] + " Saldo mindre end 0: " + sMinus[i]);
             }
          }
           /* done : split i to*/
@@ -82,33 +57,23 @@ public class Main {
         while(run){
            if(sMinus[imin]==0){
                imin++;
-               System.out.println("IMIN" + imin);
-               //continue;
+              // continue;
            }
             if(sPlus[iplus]==0){
                 iplus++;
-                System.out.println("IPLUS" + iplus);
-               // continue;
-
+              //continue;
             }
-            if(imin>=saldo.length){run = false; System.out.println("hej");}
-            if(iplus>= saldo.length){run = false; continue;}
-
-
-            //if(imin>= saldo.length)break;
-
-
-          // System.out.println(" sPlus: " + sPlus[iplus] + " sMinus " + sMinus[imin]
-             //   +names[imin]+"  "+names[iplus]);
-
-           int flyt = sPlus[iplus];
-           int test = 0;
-
-           // if  - sminus er mindre end det så brug -sminus
-            if(-sMinus[imin] <= sPlus[iplus]) {
-                System.out.println("FØRSTE IF"+ test);
+            if(imin>=saldo.length){
+                run = false;
+            }
+            if(iplus>= saldo.length){
+                run = false; continue;
+            }
+            //Flytter containerne
+            if(-sMinus[imin] <= sPlus[iplus]) { //Tjekker hvor mange der skal flyttes. Finder det laveste tal (ved at begge værdier i sPlus og sMinus
                 flyt = -sMinus[imin];
-                System.out.println(" Flyt: " + flyt + " fra " + names[iplus] + " til " + names[imin]);
+                flytCost+= flyt;
+                System.out.println("Flyt: " + flyt + " fra " + names[iplus] + " til " + names[imin]);
                 sPlus[iplus] -= flyt;
                 sMinus[imin] += flyt;
                 test++;
@@ -117,192 +82,27 @@ public class Main {
             }  else if (sPlus[iplus]< -sMinus[imin]){
                 System.out.println("ANDET IF");
                 flyt = sPlus[iplus];
-                System.out.println(" Flyt: " + flyt + " fra " + names[iplus] + " til " + names[imin]);
+                flytCost+=flyt;
+                System.out.println("Flyt: " + flyt + " fra " + names[iplus] + " til " + names[imin]);
                 sPlus[iplus] -= flyt;
                 sMinus[imin] += flyt;
             } else {
                 run = false;
 
             }
-
-
-
-
-/*
-               else if (-sMinus[imin] < iplus){
-                System.out.println("TREDJE IF");
-                flyt = sMinus[imin];
-                System.out.println(" Flyt: " + flyt + " fra " + names[iplus] + " til " + names[imin]);
-                sPlus[iplus] -= flyt;
-                sMinus[imin] += flyt;
-            }
-*/
-            
-
-
-
-
-
-               // if (1 == 1) break;//når slutningen af løkken første gang -> break ud af den
-
-
         }
 
-
-        /*System.out.println("Gammel saldo: " + saldo[i]);
-          //  System.out.println(" sPlus: " + sPlus[i] + " sMinus " + sMinus[i]);
-           // result[i] = sPlus[i] - sMinus[i];
-           System.out.println("Ny saldo: " + result[i]);*/
-
-/*
-            if (saldo[i] == 0) {
-              //  System.out.println(names[i] + " Saldo er 0: " + saldo[i]);
-            }
-
-            while (sPlus[i] > 0 || sMinus[i] < 0){
-                System.out.println("FOR MANGE" + sPlus[i]);
-                System.out.println("FOR LIDT" + sMinus[i]);
-                break;
-
-            }*/
+        System.out.println("TOTAL: " + flytCost*100 + " Dollars") ;
 
 
-
-       // }
-
-
-
-
-
-
-
-
-
-        /*for (int i = 0; i < saldo.length; i++) {
-            //Find første havn der er for mange og første havn der er for lidt
-            //Som ikke er i 0
-
-            while() {
-                //Flyt indtil sPlus eller sMinus er 0
-                //Erstatter værdien men en der er en lavere -> Kører indeks 0 -= 1 omvendt med plus
-            }
-
-        }*/
-
-   /*     int i = 0, j = 0;
-        while (i + j < ar.length) {
-            if (j == ar2.length || (i < ar1.length && ar1[i] < ar2[j]) )
-                ar[i+j] = ar1[i++]; // copy ith element of ar1 and increment i
-            else
-                ar[i+j] = ar2[j++]; // copy jth element of ar2 and increment j
-        }
-    }*/
-
-
-
-
-
+        //Printer sMinus og sPlus array efter de er "flyttet"
+        /*
+        System.out.println("sMinus listen");
         for (int sminus : sMinus) {
             System.out.println(sminus);
-
         }
         for (int splus : sPlus) {
             System.out.println(splus);
-        }
-
-
-
-
-
-
-
-
-        //  Algoritme algoritme = new Algoritme();
-        /*
-        Port Jaw = new Port("Jaw" , -1000);
-        Port Tan = new Port("Tan", -19000);
-        Port Dar = new Port("Dar", -5000);
-
-        Port Mom = new Port("Mom", 4500);
-        Port Zan = new Port("Zan", 2000);
-        Port Jeb = new Port("Jeb", 9500);
-        Port Sala = new Port("Sal", 9000);
-
-
-        algoritme.portMinusList.add(Jaw);
-        algoritme.portMinusList.add(Tan);*/
-        //algoritme.printList();
-
-
-
-/*
-               //D... (Shortest Path) Algoritme
-               int n = adjDirectedG.Vertices.size();
-               ArrayList<Vertex> vlist = adjDirectedG.Vertices;
-               boolean[] done = new boolean[n];
-               Vertex[] prev = new Vertex[n];
-
-               int [] weight = new int[n];
-
-               Arrays.fill(weight,100000);
-               Arrays.fill(done,false);
-               weight[0] = 0;
-               prev[0] = adjDirectedG.Vertices.get(0);
-
-               Vertex current = null;
-               int vægt = 100000;
-            for (int i = 0; i <n ; i++) {
-             if (weight[i] < vægt &&! done[i] ){
-                 current = adjDirectedG.Vertices.get(i);
-                 vægt = weight[i];
-             }
-                //System.out.println("current: " + current);
-            }
-        System.out.println("current: " + current);
-
-        for (int i = 0; i <n ; i++) {
-            System.out.println(i + "  " + done[i] + " " + prev[i] + " " + weight[i]);
-        }*/
-
-
-
-
-
-      /*  for (int minus : sMinus) {
-            System.out.println(minus);
-        }
-
-        for (int plus : sPlus) {
-            System.out.println(plus);
-        }*/
-
-        /*for (int i = 0; i<saldo.length; i++ ){
-            if(sPlus[i]>0){
-                System.out.println("sPlus: " + sPlus[i]);
-                System.out.println("sMinus: " + sMinus[i]);
-                int test = sPlus[i] + 33;
-                System.out.println(test);
-
-            }
-
-            if(sMinus[i]<0){
-                System.out.println("TEST - 3 der er mindre");
-            }*/
-
-
-
-
-        /*int counter = 6;
-        while(sPlus[counter]>0){
-            if(sPlus[counter]>0){
-                sMinus[counter] = sMinus[counter] + sPlus[counter];
-                System.out.println("sMounis counter: " + sMinus[counter]);
-
-                if(sMinus[counter]<0){
-                    break;
-                }
-
-            }
         }*/
 
     }
@@ -357,7 +157,6 @@ public class Main {
         //Fra havn Mom
         newG.addEdge(Mom,Jeb,500);
         newG.addEdge(Mom,Sal, 2000);
-       // newG.addEdge(Mom,Mom, 0);
 
 
         newG.addEdge(Jeb,Jeb,0);

@@ -22,30 +22,10 @@ public class AdjacencyGraph {
         }
         Edge newE = new Edge(from, to, container);
 
-        /*
-        for (int i = 0; i <Vertices.size(); i++) {
-             if (from == Vertices.get(i)){
-                 System.out.println(Vertices.get(i).name + ": " + container );
-             }
-        }
-*/
     }
 
-
-    public void addUnDirectedEdge(Vertex from, Vertex to, Integer weight){
-        if(!(Vertices.contains(from) && Vertices.contains(to)))
-        {
-            System.out.println("Vertices missing from graph");
-            return;
-        }
-        Edge newE=new Edge(from, to, weight);
-        Edge newE2=new Edge( to, from, weight);
-    }
 
     public void PrintGraph(){
-
-
-
         for(int i=0;i<Vertices.size();i++){
             System.out.println(" Destination "+Vertices.get(i).name+" is shipping container amount to: ");
             Vertex current=Vertices.get(i);
@@ -61,8 +41,6 @@ public class AdjacencyGraph {
 
 class Vertex {
     String name;
-
-
     ArrayList<Edge> OutEdge;
     public Vertex(String name ){
         this.name=name;
