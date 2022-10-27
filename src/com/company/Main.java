@@ -77,15 +77,23 @@ public class Main {
 
         
         int imin=0, iplus=0; //counter
-        while(true){
+        boolean run = true;
+        //while(true)
+        while(run){
            if(sMinus[imin]==0){
                imin++; continue;
            }
             if(sPlus[iplus]==0){
-                iplus++; continue;
+                iplus++;
+                System.out.println("IPLUS" + iplus);
+               // continue;
+
             }
-            if(imin>=saldo.length)break;
-            if(iplus>=saldo.length)break;
+            if(imin>=saldo.length){run = false; System.out.println("hej");}
+            if(iplus>= saldo.length){run = false; continue;}
+
+
+            //if(imin>= saldo.length)break;
 
 
            System.out.println(" sPlus: " + sPlus[iplus] + " sMinus " + sMinus[imin]
@@ -93,13 +101,17 @@ public class Main {
 
            int flyt = sPlus[iplus];
            // if  - sminus er mindre end det så brug -sminus
-            if(sMinus[imin]< sPlus[iplus]) {
-                flyt = sMinus[imin];
+            if(-sMinus[imin] <= sPlus[iplus]) {
+                System.out.println("FØRSTE IF"+ test);
+                flyt = -sMinus[imin];
                 System.out.println(" Flyt: " + flyt + " fra " + names[iplus] + " til " + names[imin]);
                 sPlus[iplus] -= flyt;
                 sMinus[imin] += flyt;
+                test++;
 
-            }  else if (sPlus[iplus]< sMinus[imin]){
+
+            }  else if (sPlus[iplus]< -sMinus[imin]){
+                System.out.println("ANDET IF");
                 flyt = sPlus[iplus];
                 System.out.println(" Flyt: " + flyt + " fra " + names[iplus] + " til " + names[imin]);
                 sPlus[iplus] -= flyt;
@@ -163,7 +175,7 @@ public class Main {
 
 
 
-/*
+
         for (int sminus : sMinus) {
             System.out.println(sminus);
 
@@ -171,7 +183,7 @@ public class Main {
         for (int splus : sPlus) {
             System.out.println(splus);
         }
-*/
+
 
 
 
