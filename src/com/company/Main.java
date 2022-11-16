@@ -1,10 +1,5 @@
 package com.company;
 
-import javax.sound.midi.Soundbank;
-import java.sql.SQLOutput;
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -49,20 +44,7 @@ public class Main {
             }
          }
 
-        //Print sMinus og sPlus array før de er flyttet
-        /*
-        //Printer listerne ud
-        System.out.println("sMinus listen");
-        for (int sminus : sMinus) {
-
-            System.out.println(sminus);
-        }
-        System.out.println("sPlus listen");
-        for (int splus : sPlus) {
-
-            System.out.println(splus);
-        }*/
-
+        //Kunne være en metode som flytter
         int flyt;
         int flytCost = 0;
         int imin=0, iplus=0; //counter
@@ -70,11 +52,9 @@ public class Main {
          while(run){
            if(sMinus[imin]==0){
                imin++;
-              // continue;
            }
             if(sPlus[iplus]==0){
                 iplus++;
-              //continue;
             }
             if(imin>=saldo.length){
                 run = false;
@@ -82,6 +62,8 @@ public class Main {
             if(iplus>= saldo.length){
                 run = false; continue;
             }
+
+
             //Flytter containerne
             if(-sMinus[imin] <= sPlus[iplus]) { //Tjekker hvor mange der skal flyttes. Finder det laveste tal (ved at begge værdier i sPlus og sMinus
                 flyt = -sMinus[imin];
@@ -100,19 +82,8 @@ public class Main {
             }
         }
 
+         //Printer ud, hvad det koster
         System.out.println("TOTAL: " + flytCost*100 + " Dollars") ;
-
-
-        //Printer sMinus og sPlus array efter de er "flyttet"
-        /*
-        System.out.println("sMinus listen");
-        for (int sminus : sMinus) {
-            System.out.println(sminus);
-        }
-        System.out.println("sPlus listen");
-        for (int splus : sPlus) {
-            System.out.println(splus);
-        }*/
 
     }
 
